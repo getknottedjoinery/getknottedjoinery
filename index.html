@@ -154,6 +154,14 @@
   textarea{min-height:110px;resize:vertical}
   form .btn{width:100%;margin-top:4px}
   .note{font-size:.8rem;color:#7d766b;text-align:center;margin-top:-10px}
+  .note.ok{color:var(--gold);font-size:.95rem}
+  .note.err{color:#e0907a;font-size:.9rem}
+  form .btn[disabled]{opacity:.6;cursor:wait}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .thanks{text-align:center;padding:30px 10px}
+  .thanks h3{font-size:2rem;margin-bottom:10px}
+  .thanks h3 em{color:var(--gold)}
+  .thanks p{color:var(--muted)}
 
   footer{border-top:1px solid var(--line);padding:46px 0 120px;font-size:.84rem;color:#7d766b}
   footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
@@ -390,8 +398,9 @@
           </label>
         </div>
         <label>Project details<textarea name="message" placeholder="Tell us about the job: sizes, timescales, any ideas you have…"></textarea></label>
+        <label class="hp" aria-hidden="true">Leave this empty<input type="checkbox" name="botcheck" tabindex="-1"></label>
         <button class="btn btn-gold" type="submit">Send enquiry</button>
-        <p class="note">This opens your email app with your enquiry filled in.</p>
+        <p class="note" id="form-status" role="status">We usually reply within one working day.</p>
       </form>
     </div>
   </section>
@@ -459,12 +468,48 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
   document.querySelectorAll('.nav ul a').forEach(a => a.addEventListener('click', () => document.querySelector('.nav ul').classList.remove('open')));
 
-  // Enquiry form: opens the visitor's email app addressed to Get Knotted Joinery.
-  document.getElementById('quote').addEventListener('submit', e => {
+  // Enquiry form: sends straight to getknottedjoinery@hotmail.com via Web3Forms (web3forms.com).
+  // Paste the access key from the Web3Forms email between the quotes below.
+  const WEB3FORMS_KEY = 'f83608f6-1912-45d3-ac00-fa824312a3fd';
+
+  const form = document.getElementById('quote');
+  const status = document.getElementById('form-status');
+  const sendBtn = form.querySelector('button[type=submit]');
+  const setStatus = (msg, cls) => { status.textContent = msg; status.className = 'note' + (cls ? ' ' + cls : ''); };
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    const f = new FormData(e.target);
-    const body = `Name: ${f.get('name')}\nPhone: ${f.get('phone')}\nEmail: ${f.get('email') || 'Not provided'}\nLocation: ${f.get('location')}\nService: ${f.get('service')}\nBest way to contact: ${f.get('contactBy')}\n\n${f.get('message')}`;
-    location.href = `mailto:getknottedjoinery@hotmail.com?subject=${encodeURIComponent('Quote enquiry: ' + f.get('service'))}&body=${encodeURIComponent(body)}`;
+    const f = new FormData(form);
+    if (f.get('botcheck')) return;                       // spam bot filled the hidden box
+    const phone = (f.get('phone') || '').trim(), email = (f.get('email') || '').trim();
+    if (!phone && !email) { setStatus('Please give us a phone number or email so we can get back to you.', 'err'); form.phone.focus(); return; }
+
+    sendBtn.disabled = true; sendBtn.textContent = 'Sending…'; setStatus('');
+    const payload = {
+      access_key: WEB3FORMS_KEY,
+      subject: `New quote enquiry: ${f.get('service')} (${f.get('name')})`,
+      from_name: 'Get Knotted Joinery website',
+      name: f.get('name'),
+      phone: phone || 'Not provided',
+      email: email || undefined,                         // used as the reply-to address when given
+      location: f.get('location') || 'Not provided',
+      service: f.get('service'),
+      best_way_to_contact: f.get('contactBy'),
+      message: f.get('message') || '(no details given)'
+    };
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST', headers: {'Content-Type': 'application/json', Accept: 'application/json'}, body: JSON.stringify(payload)
+      });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok || !out.success) throw new Error(out.message || 'Send failed');
+      form.innerHTML = `<div class="thanks"><h3>Thank you, <em>${String(f.get('name')).replace(/[<>&"]/g, '')}</em></h3>
+        <p>Your enquiry has been sent. We'll be in touch soon, usually within one working day.</p>
+        <p style="margin-top:14px">Need us sooner? Call <a href="tel:+447925468132" style="color:var(--gold)">07925 468132</a></p></div>`;
+    } catch (err) {
+      sendBtn.disabled = false; sendBtn.textContent = 'Send enquiry';
+      setStatus('Sorry, your enquiry could not be sent just now. Please call 07925 468132 or email getknottedjoinery@hotmail.com.', 'err');
+    }
   });
 </script>
 </body>
