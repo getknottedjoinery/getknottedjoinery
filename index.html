@@ -366,7 +366,7 @@
           <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
         </div>
         <div class="row">
-          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <label>Email (optional)<input name="email" type="email" autocomplete="email"></label>
           <label>Town / postcode<input name="location" autocomplete="postal-code" placeholder="e.g. Hamilton"></label>
         </div>
         <div class="row">
@@ -463,7 +463,7 @@
   document.getElementById('quote').addEventListener('submit', e => {
     e.preventDefault();
     const f = new FormData(e.target);
-    const body = `Name: ${f.get('name')}\nPhone: ${f.get('phone')}\nEmail: ${f.get('email')}\nLocation: ${f.get('location')}\nService: ${f.get('service')}\nBest way to contact: ${f.get('contactBy')}\n\n${f.get('message')}`;
+    const body = `Name: ${f.get('name')}\nPhone: ${f.get('phone')}\nEmail: ${f.get('email') || 'Not provided'}\nLocation: ${f.get('location')}\nService: ${f.get('service')}\nBest way to contact: ${f.get('contactBy')}\n\n${f.get('message')}`;
     location.href = `mailto:getknottedjoinery@hotmail.com?subject=${encodeURIComponent('Quote enquiry: ' + f.get('service'))}&body=${encodeURIComponent(body)}`;
   });
 </script>
