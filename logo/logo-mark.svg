@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="240" height="240">
+  <title>Get Knotted Joinery mark</title>
+  <defs><clipPath id="gk-c"><circle cx="60" cy="60" r="47"/></clipPath></defs>
+  <g fill="none" stroke="#c3a36b" stroke-linecap="round">
+    <circle cx="60" cy="60" r="56" stroke-width="1.4"/>
+    <circle cx="60" cy="60" r="51.5" stroke-width=".7"/>
+    <g clip-path="url(#gk-c)" stroke-width="1.6">
+      <path d="M43 0C43 35 39 40 39 60S43 85 43 120"/>
+      <path d="M34 0C34 35 30 40 30 60S34 85 34 120"/>
+      <path d="M25 0C25 35 22 40 22 60S25 85 25 120"/>
+      <path d="M77 0C77 35 81 40 81 60S77 85 77 120"/>
+      <path d="M86 0C86 35 90 40 90 60S86 85 86 120"/>
+      <path d="M95 0C95 35 98 40 98 60S95 85 95 120"/>
+      <path d="M60 0V38M60 82V120"/>
+      <ellipse cx="60" cy="60" rx="15" ry="22"/>
+      <ellipse cx="60" cy="60" rx="9.5" ry="14"/>
+    </g>
+    <ellipse cx="60" cy="60" rx="4.5" ry="7" fill="#c3a36b" stroke="none"/>
+  </g>
+</svg>

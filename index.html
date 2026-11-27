@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Knotted Joinery | Kitchens, Wardrobes, Media Walls &amp; Doors</title>
+<meta name="description" content="Joiners who make and fit kitchens, bespoke fitted wardrobes, media walls and internal and external doors across Glasgow, Lanarkshire, Ayrshire and the North of England. Free quotes.">
+<link rel="icon" href="logo/logo-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0d0d0c;      /* page */
+    --char:#151513;       /* alternate sections */
+    --panel:#1b1b19;      /* cards, form */
+    --line:#2c2a26;       /* hairlines */
+    --gold:#c3a36b;       /* antique gold accent */
+    --gold-soft:#a88a55;
+    --ivory:#efe9df;      /* main text */
+    --muted:#a29a8e;      /* secondary text */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--ivory);font:300 17px/1.75 Jost,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.1;letter-spacing:.01em}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  section{padding:110px 0}
+  .alt{background:var(--char)}
+
+  .eyebrow{display:flex;align-items:center;gap:14px;font-size:.74rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  .eyebrow::before{content:"";width:36px;height:1px;background:var(--gold)}
+  h2{font-size:clamp(2.2rem,4.4vw,3.3rem);margin-bottom:18px}
+  .lede{color:var(--muted);max-width:600px;font-size:1.05rem}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;font:500 .8rem/1 Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid var(--gold);transition:.3s;cursor:pointer}
+  .btn-gold{background:var(--gold);color:var(--black)}
+  .btn-gold:hover{background:#d2b57f;border-color:#d2b57f}
+  .btn-line{background:transparent;color:var(--gold)}
+  .btn-line:hover{background:rgba(195,163,107,.1)}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:20;background:rgba(13,13,12,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .logo{text-decoration:none;display:flex;align-items:center;gap:13px;line-height:1}
+  .logo svg{width:44px;height:44px;color:var(--gold);flex:none}
+  .logo .lt{display:flex;flex-direction:column}
+  .logo b{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:1.55rem;letter-spacing:.06em}
+  .logo small{font-size:.62rem;letter-spacing:.5em;color:var(--gold);margin-top:5px;padding-left:2px}
+  .nav ul{display:flex;gap:34px;list-style:none;align-items:center}
+  .nav ul a{text-decoration:none;font-size:.78rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);transition:.2s}
+  .nav ul a:hover{color:var(--ivory)}
+  .nav ul .btn{color:var(--black);padding:12px 22px;font-size:.72rem}
+  .menu-toggle{display:none;background:none;border:0;cursor:pointer;width:30px;height:20px;position:relative}
+  .menu-toggle span,.menu-toggle::before,.menu-toggle::after{content:"";position:absolute;left:0;right:0;height:1px;background:var(--ivory)}
+  .menu-toggle::before{top:0}.menu-toggle span{top:50%}.menu-toggle::after{bottom:0}
+
+  /* Hero */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:center;padding:120px 0;
+    background:linear-gradient(90deg,rgba(13,13,12,.96) 0%,rgba(13,13,12,.82) 45%,rgba(13,13,12,.35) 100%),
+      url('images/media-wall-angled.jpg') center/cover no-repeat var(--black)}
+  .hero h1{font-size:clamp(2.8rem,6.6vw,5.2rem);font-weight:500;max-width:780px;margin-bottom:26px}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p{font-size:1.15rem;max-width:520px;color:#cfc7ba;margin-bottom:40px}
+  .hero .actions{display:flex;gap:16px;flex-wrap:wrap}
+  .trust{display:flex;gap:36px;flex-wrap:wrap;margin-top:70px;padding-top:28px;border-top:1px solid rgba(195,163,107,.25);max-width:760px;
+    font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:#cfc7ba}
+  .trust span{display:flex;align-items:center;gap:10px}
+  .trust span::before{content:"";width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+
+  /* Services */
+  .services{display:grid;grid-template-columns:repeat(3,1fr);margin-top:60px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .service{padding:44px 38px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.35s;position:relative}
+  .service:hover{background:var(--panel)}
+  .service::after{content:"";position:absolute;left:38px;bottom:-1px;width:0;height:1px;background:var(--gold);transition:.4s}
+  .service:hover::after{width:calc(100% - 76px)}
+  .service .num{font-family:"Cormorant Garamond",serif;color:var(--gold);font-size:1rem;letter-spacing:.1em;margin-bottom:26px}
+  .service h3{font-size:1.75rem;margin-bottom:12px}
+  .service p{color:var(--muted);font-size:.98rem}
+
+  /* About */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .framed{position:relative}
+  .framed img{width:100%;aspect-ratio:1;object-fit:cover;position:relative;z-index:1}
+  .framed::before{content:"";position:absolute;inset:-18px 18px 18px -18px;border:1px solid var(--gold-soft);opacity:.6}
+  .values{list-style:none;margin-top:34px;display:grid;gap:16px}
+  .values li{display:flex;gap:16px;align-items:baseline;color:#d7cfc2}
+  .values li::before{content:"";flex:none;width:6px;height:6px;background:var(--gold);transform:rotate(45deg) translateY(-2px)}
+
+  /* Gallery */
+  .filters{display:flex;gap:6px 26px;flex-wrap:wrap;margin-top:36px}
+  .filters button{font:400 .76rem Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase;padding:8px 0;border:0;border-bottom:1px solid transparent;background:none;color:var(--muted);cursor:pointer;transition:.2s}
+  .filters button:hover{color:var(--ivory)}
+  .filters button.active{color:var(--gold);border-bottom-color:var(--gold)}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px}
+  .gallery figure{position:relative;overflow:hidden;cursor:zoom-in;aspect-ratio:3/4;background:var(--panel)}
+  .gallery figure.wide{grid-column:span 2;aspect-ratio:auto}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease,filter .4s}
+  .gallery figure:hover img{transform:scale(1.04)}
+  .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 16px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+    background:linear-gradient(transparent,rgba(8,8,7,.85));opacity:0;transform:translateY(8px);transition:.35s}
+  .gallery figure:hover figcaption{opacity:1;transform:none}
+  .gallery figure.hide{display:none}
+  @media (hover:none){.gallery figcaption{opacity:1;transform:none}}
+
+  /* Lightbox */
+  .lightbox{position:fixed;inset:0;z-index:50;background:rgba(6,6,5,.96);display:none;align-items:center;justify-content:center;padding:24px}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:100%;max-height:82vh}
+  .lightbox p{text-align:center;margin-top:16px;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+  .lightbox button{position:absolute;background:none;border:1px solid rgba(195,163,107,.5);color:var(--gold);font-size:1.3rem;width:46px;height:46px;cursor:pointer;transition:.2s}
+  .lightbox button:hover{background:rgba(195,163,107,.12)}
+  .lb-close{top:20px;right:20px}
+  .lb-prev{left:20px;top:50%;transform:translateY(-50%)}
+  .lb-next{right:20px;top:50%;transform:translateY(-50%)}
+
+  /* Process */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:60px;counter-reset:s}
+  .step::before{counter-increment:s;content:"0" counter(s);display:block;font-family:"Cormorant Garamond",serif;font-size:3rem;font-weight:500;color:var(--gold);line-height:1;
+    padding-bottom:18px;margin-bottom:20px;border-bottom:1px solid var(--line)}
+  .step h3{font-size:1.45rem;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:.96rem}
+
+  /* CTA band */
+  .cta-band{padding:80px 0;border-block:1px solid rgba(195,163,107,.3);background:
+    radial-gradient(ellipse at center,rgba(195,163,107,.08),transparent 70%),var(--black);text-align:center}
+  .cta-band h2{font-size:clamp(2rem,4vw,3rem);font-weight:500}
+  .cta-band h2 em{color:var(--gold)}
+  .cta-band p{color:var(--muted);margin-bottom:34px}
+  .cta-band .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  /* Contact */
+  .contact .split{align-items:start}
+  .details{margin-top:40px;display:grid;gap:26px}
+  .details small{display:block;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+  .details a,.details span{text-decoration:none;font-size:1.1rem;color:var(--ivory)}
+  .details a:hover{color:var(--gold)}
+  .socials{display:flex;gap:10px;margin-top:8px}
+  .socials a{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line);transition:.25s}
+  .socials a:hover{border-color:var(--gold);color:var(--gold)}
+  .socials svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  form{background:var(--panel);border:1px solid var(--line);padding:44px;display:grid;gap:26px;position:relative}
+  form::before{content:"";position:absolute;top:-1px;left:44px;width:60px;height:2px;background:var(--gold)}
+  form h3{font-size:1.7rem;margin-bottom:-6px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  label{font-size:.68rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);display:grid;gap:8px}
+  input,select,textarea{font:300 1rem Jost,sans-serif;letter-spacing:normal;text-transform:none;color:var(--ivory);background:transparent;border:0;border-bottom:1px solid #3a3731;padding:8px 0;width:100%;border-radius:0;transition:.25s}
+  select{appearance:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23c3a36b' stroke-width='1.3'/%3E%3C/svg%3E") right 4px center no-repeat}
+  select option{background:var(--panel);color:var(--ivory)}
+  input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--gold)}
+  input::placeholder,textarea::placeholder{color:#5f5a52}
+  textarea{min-height:110px;resize:vertical}
+  form .btn{width:100%;margin-top:4px}
+  .note{font-size:.8rem;color:#7d766b;text-align:center;margin-top:-10px}
+
+  footer{border-top:1px solid var(--line);padding:46px 0 120px;font-size:.84rem;color:#7d766b}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+  footer a{text-decoration:none;color:var(--muted)}
+  footer a:hover{color:var(--gold)}
+  footer nav{display:flex;gap:22px;flex-wrap:wrap}
+
+  /* Floating call button */
+  .float-cta{position:fixed;right:24px;bottom:24px;z-index:30;display:flex;align-items:center;gap:12px;
+    background:var(--black);color:var(--gold);border:1px solid var(--gold);padding:15px 24px;
+    font:500 .74rem/1 Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;
+    box-shadow:0 12px 30px rgba(0,0,0,.5);transition:.3s;opacity:0;transform:translateY(16px);pointer-events:none}
+  .float-cta.show{opacity:1;transform:none;pointer-events:auto}
+  .float-cta:hover{background:var(--gold);color:var(--black)}
+  .float-cta svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6}
+
+  @media (max-width:960px){
+    section{padding:80px 0}
+    .services{grid-template-columns:1fr 1fr}
+    .split{grid-template-columns:1fr;gap:56px}
+    .steps{grid-template-columns:1fr 1fr}
+    .gallery{grid-template-columns:1fr 1fr}
+    .menu-toggle{display:block}
+    .nav ul{display:none;position:absolute;top:78px;left:0;right:0;background:var(--black);flex-direction:column;align-items:flex-start;padding:28px 24px;gap:22px;border-bottom:1px solid var(--line)}
+    .nav ul.open{display:flex}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 16px}
+    .services,.steps,.row{grid-template-columns:1fr}
+    .service{padding:34px 26px}
+    .gallery{gap:8px}
+    form{padding:30px 22px}
+    .framed::before{inset:-10px 10px 10px -10px}
+    .hero{min-height:auto;padding:90px 0}
+    .float-cta{left:16px;right:16px;bottom:16px;justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="gk-mark" viewBox="0 0 120 120">
+    <defs><clipPath id="gk-clip"><circle cx="60" cy="60" r="47"/></clipPath></defs>
+    <g fill="none" stroke="currentColor" stroke-linecap="round">
+      <circle cx="60" cy="60" r="56" stroke-width="2"/>
+      <circle cx="60" cy="60" r="51.5" stroke-width="1"/>
+      <g clip-path="url(#gk-clip)" stroke-width="2.2">
+        <path d="M43 0C43 35 39 40 39 60S43 85 43 120"/>
+        <path d="M34 0C34 35 30 40 30 60S34 85 34 120"/>
+        <path d="M25 0C25 35 22 40 22 60S25 85 25 120"/>
+        <path d="M77 0C77 35 81 40 81 60S77 85 77 120"/>
+        <path d="M86 0C86 35 90 40 90 60S86 85 86 120"/>
+        <path d="M95 0C95 35 98 40 98 60S95 85 95 120"/>
+        <path d="M60 0V38M60 82V120"/>
+        <ellipse cx="60" cy="60" rx="15" ry="22"/>
+        <ellipse cx="60" cy="60" rx="9.5" ry="14"/>
+      </g>
+      <ellipse cx="60" cy="60" rx="4.5" ry="7" fill="currentColor" stroke="none"/>
+    </g>
+  </symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="Get Knotted Joinery home">
+      <svg aria-hidden="true"><use href="#gk-mark"/></svg>
+      <span class="lt"><b>GET KNOTTED</b><small>JOINERY</small></span>
+    </a>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav ul').classList.toggle('open')"><span></span></button>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="btn btn-gold">Free Quote</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Bespoke joinery · Glasgow, Lanarkshire &amp; beyond</p>
+      <h1>Crafted to fit your home, <em>built to last.</em></h1>
+      <p>Kitchens, fitted wardrobes, media walls and doors, measured, made and fitted with care and attention to every detail.</p>
+      <div class="actions">
+        <a href="#contact" class="btn btn-gold">Get a free quote</a>
+        <a href="tel:+447925468132" class="btn btn-line">Call 07925 468132</a>
+      </div>
+      <div class="trust">
+        <span>20+ years' experience</span>
+        <span>Time-served joiner</span>
+        <span>Free quotes</span>
+        <span>Fully insured</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="alt">
+    <div class="wrap">
+      <p class="eyebrow">What we do</p>
+      <h2>Our services</h2>
+      <p class="lede">Every project is designed around your space, your style and your budget, and finished to a standard we're proud to put our name to.</p>
+      <div class="services">
+        <article class="service"><div class="num">01</div><h3>Kitchens</h3><p>We supply and fit new kitchens, or refit and update the one you have. Units, worktops, end panels and a clean finish all round. Includes a free basic CAD design.</p></article>
+        <article class="service"><div class="num">02</div><h3>Bespoke Wardrobes</h3><p>Fitted and sliding-door wardrobes built to use every inch, including alcoves, sloped ceilings and awkward corners. Interior lighting is optional. Includes a free basic CAD design.</p></article>
+        <article class="service"><div class="num">03</div><h3>Media Walls</h3><p>Slatted and panelled feature walls with a recessed TV, an electric fire, floating units, hidden cables and LED lighting.</p></article>
+        <article class="service"><div class="num">04</div><h3>Internal Doors</h3><p>We supply and hang internal doors and fire doors, fit frames, linings, architrave and ironmongery.</p></article>
+        <article class="service"><div class="num">05</div><h3>External Doors</h3><p>Secure, weather-tight composite and timber front and back doors, fitted with quality locks.</p></article>
+        <article class="service"><div class="num">06</div><h3>General Joinery</h3><p>Skirting, architrave, shelving, boxing in, repairs, and the jobs that need a skilled pair of hands.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap split">
+      <div class="framed"><img src="images/wardrobe-oak-lit.jpg" alt="Bespoke oak fitted wardrobes with LED lighting, drawers and shoe shelving" loading="lazy" style="object-position:center 30%"></div>
+      <div>
+        <p class="eyebrow">About us</p>
+        <h2>Proper joinery, done right first time.</h2>
+        <p class="lede">Get Knotted Joinery is run by Jason, a fully time-served joiner with over 20 years in the trade. Jason holds an HNC in Joinery and Carpentry and Level 2 &amp; 3 qualifications from Motherwell College.</p>
+        <p class="lede" style="margin-top:14px">Whether it's a single door or a full kitchen, you deal directly with the person who measures, makes and fits your project, from the first visit to the final clean-up. We take pride in neat, solid work that looks right and lasts.</p>
+        <p class="lede" style="margin-top:14px">We work across Glasgow, Lanarkshire and Ayrshire, and take on projects in the North of England.</p>
+        <ul class="values">
+          <li>We turn up when we say we will</li>
+          <li>Clear quotes with no hidden extras</li>
+          <li>We leave your home clean and tidy</li>
+          <li>Quality materials and a lasting finish</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="alt">
+    <div class="wrap">
+      <p class="eyebrow">Recent projects</p>
+      <h2>Our work</h2>
+      <p class="lede">Some of the projects we've finished recently. Tap any photo to see it bigger.</p>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="kitchen">Kitchens</button>
+        <button data-filter="wardrobe">Wardrobes</button>
+        <button data-filter="media">Media Walls</button>
+        <button data-filter="door">Doors</button>
+      </div>
+      <div class="gallery">
+        <figure class="wide" data-cat="media"><img src="images/media-wall-front.jpg" alt="Slatted media wall with floating unit and recessed TV panel" loading="lazy"><figcaption>Slatted media wall</figcaption></figure>
+        <figure data-cat="kitchen"><img src="images/kitchen-oven.jpg" alt="Navy kitchen with marble-effect worktops and built-in oven" loading="lazy"><figcaption>Navy kitchen</figcaption></figure>
+        <figure data-cat="wardrobe"><img src="images/wardrobe-sliding-closed.jpg" alt="Dark grey fitted sliding-door wardrobe" loading="lazy"><figcaption>Sliding wardrobe</figcaption></figure>
+        <figure data-cat="media"><img src="images/media-wall-fire.jpg" alt="Media wall with electric fire and LED lighting" loading="lazy"><figcaption>Media wall &amp; fire</figcaption></figure>
+        <figure data-cat="kitchen"><img src="images/kitchen-sink.jpg" alt="Kitchen with black sink and tap under the window" loading="lazy"><figcaption>Kitchen sink run</figcaption></figure>
+        <figure data-cat="door"><img src="images/front-door-grey.jpg" alt="Anthracite grey composite front door" loading="lazy"><figcaption>Composite front door</figcaption></figure>
+        <figure data-cat="wardrobe"><img src="images/wardrobe-sliding-open.jpg" alt="Sliding wardrobe opened to show internal shelving" loading="lazy"><figcaption>Wardrobe interior</figcaption></figure>
+        <figure class="wide" data-cat="media"><img src="images/media-wall-angled.jpg" alt="Media wall with LED backlighting and floating cabinets" loading="lazy"><figcaption>LED-lit media wall</figcaption></figure>
+        <figure data-cat="kitchen"><img src="images/kitchen-corner.jpg" alt="Compact L-shaped kitchen with under-cabinet lights" loading="lazy"><figcaption>L-shaped kitchen</figcaption></figure>
+        <figure data-cat="door"><img src="images/front-door-white.jpg" alt="White composite front door with glazed panel" loading="lazy"><figcaption>White front door</figcaption></figure>
+        <figure data-cat="kitchen"><img src="images/kitchen-window.jpg" alt="Kitchen with washing machine housing and back door" loading="lazy"><figcaption>Kitchen &amp; utility</figcaption></figure>
+        <figure class="wide" data-cat="wardrobe"><img src="images/wardrobe-oak-lit.jpg" alt="Oak fitted wardrobes with LED lighting" loading="lazy" style="object-position:center 30%"><figcaption>Oak wardrobes</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2>Simple from start to finish</h2>
+      <div class="steps">
+        <div class="step"><h3>Get in touch</h3><p>Tell us about your project by phone or with the contact form.</p></div>
+        <div class="step"><h3>Visit &amp; measure</h3><p>We visit, talk through your ideas and take accurate measurements.</p></div>
+        <div class="step"><h3>Free design &amp; quote</h3><p>All wardrobes and kitchens come with a free basic CAD design, so you can see it before it's built. You also get a written quote with no hidden costs.</p></div>
+        <div class="step"><h3>Manufactured &amp; fitted</h3><p>Every piece is manufactured and installed to a high standard, and your home is left clean and tidy when the work is complete.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <div class="wrap">
+      <h2>Ready to start <em>your project?</em></h2>
+      <p>Get a free, no-obligation quote today, or call us for a chat.</p>
+      <div class="actions">
+        <a href="#contact" class="btn btn-gold">Get a free quote</a>
+        <a href="tel:+447925468132" class="btn btn-line">Call 07925 468132</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="contact" class="contact alt">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Contact us</p>
+        <h2>Let's talk about your project</h2>
+        <p class="lede">Send us a few details and we'll get back to you, usually within one working day.</p>
+        <div class="details">
+          <div><small>Phone</small><a href="tel:+447925468132">07925 468132</a></div>
+          <div><small>Email</small><a href="mailto:getknottedjoinery@hotmail.com">getknottedjoinery@hotmail.com</a></div>
+          <div><small>Areas covered</small><span>Glasgow, Lanarkshire, Ayrshire &amp; the North of England</span></div>
+          <div><small>Follow us · @getknottedjoinery</small>
+            <div class="socials">
+              <a href="https://www.instagram.com/getknottedjoinery" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+              <a href="https://www.tiktok.com/@getknottedjoinery" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 3 2.5 5 5 5"/></svg></a>
+              <a href="https://www.facebook.com/getknottedjoinery" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form id="quote">
+        <h3>Request a free quote</h3>
+        <div class="row">
+          <label>Name<input name="name" required autocomplete="name"></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+        </div>
+        <div class="row">
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <label>Town / postcode<input name="location" autocomplete="postal-code" placeholder="e.g. Hamilton"></label>
+        </div>
+        <div class="row">
+          <label>What do you need?
+            <select name="service">
+              <option>Kitchen</option>
+              <option>Bespoke wardrobes</option>
+              <option>Media wall</option>
+              <option>Internal doors</option>
+              <option>External doors</option>
+              <option>General joinery</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label>Best way to contact you
+            <select name="contactBy">
+              <option>Phone call</option>
+              <option>Text message</option>
+              <option>Email</option>
+            </select>
+          </label>
+        </div>
+        <label>Project details<textarea name="message" placeholder="Tell us about the job: sizes, timescales, any ideas you have…"></textarea></label>
+        <button class="btn btn-gold" type="submit">Send enquiry</button>
+        <p class="note">This opens your email app with your enquiry filled in.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Get Knotted Joinery home"><svg aria-hidden="true" style="width:36px;height:36px"><use href="#gk-mark"/></svg><span class="lt"><b style="font-size:1.25rem">GET KNOTTED</b><small>JOINERY</small></span></a>
+    <nav>
+      <a href="tel:+447925468132">07925 468132</a>
+      <a href="mailto:getknottedjoinery@hotmail.com">Email</a>
+      <a href="https://www.instagram.com/getknottedjoinery" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@getknottedjoinery" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.facebook.com/getknottedjoinery" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <span>© <span id="yr"></span> Get Knotted Joinery</span>
+  </div>
+</footer>
+
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Project photo">
+  <button class="lb-close" aria-label="Close">×</button>
+  <button class="lb-prev" aria-label="Previous photo">‹</button>
+  <div><img alt=""><p></p></div>
+  <button class="lb-next" aria-label="Next photo">›</button>
+</div>
+
+<a href="tel:+447925468132" class="float-cta" aria-label="Call Get Knotted Joinery for a free quote">
+  <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+  Call for a free quote
+</a>
+
+<script>
+  // Floating call button: show after the hero, hide at the contact section
+  const floatBtn = document.querySelector('.float-cta');
+  const contact = document.getElementById('contact');
+  const toggleFloat = () => {
+    const pastHero = window.scrollY > window.innerHeight * 0.6;
+    const atContact = contact.getBoundingClientRect().top < window.innerHeight * 0.8;
+    floatBtn.classList.toggle('show', pastHero && !atContact);
+  };
+  window.addEventListener('scroll', toggleFloat, {passive:true});
+  toggleFloat();
+
+  // Gallery filters
+  const figs = [...document.querySelectorAll('.gallery figure')];
+  document.querySelectorAll('.filters button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.filters button').forEach(x => x.classList.toggle('active', x === b));
+    figs.forEach(f => f.classList.toggle('hide', b.dataset.filter !== 'all' && f.dataset.cat !== b.dataset.filter));
+  }));
+
+  // Lightbox
+  const lb = document.querySelector('.lightbox'), lbImg = lb.querySelector('img'), lbCap = lb.querySelector('p');
+  let cur = 0;
+  const visible = () => figs.filter(f => !f.classList.contains('hide'));
+  const show = i => { const v = visible(); cur = (i + v.length) % v.length; const im = v[cur].querySelector('img');
+    lbImg.src = im.src; lbImg.alt = im.alt; lbCap.textContent = v[cur].querySelector('figcaption').textContent; lb.classList.add('open'); };
+  figs.forEach(f => f.addEventListener('click', () => show(visible().indexOf(f))));
+  lb.querySelector('.lb-close').onclick = () => lb.classList.remove('open');
+  lb.querySelector('.lb-prev').onclick = e => { e.stopPropagation(); show(cur - 1); };
+  lb.querySelector('.lb-next').onclick = e => { e.stopPropagation(); show(cur + 1); };
+  lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+  document.addEventListener('keydown', e => { if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') lb.classList.remove('open'); if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.querySelectorAll('.nav ul a').forEach(a => a.addEventListener('click', () => document.querySelector('.nav ul').classList.remove('open')));
+
+  // Enquiry form: opens the visitor's email app addressed to Get Knotted Joinery.
+  document.getElementById('quote').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const body = `Name: ${f.get('name')}\nPhone: ${f.get('phone')}\nEmail: ${f.get('email')}\nLocation: ${f.get('location')}\nService: ${f.get('service')}\nBest way to contact: ${f.get('contactBy')}\n\n${f.get('message')}`;
+    location.href = `mailto:getknottedjoinery@hotmail.com?subject=${encodeURIComponent('Quote enquiry: ' + f.get('service'))}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+</body>
+</html>
